@@ -9,7 +9,7 @@ import cors from "cors";
 import express from "express";
 import CustomError from "./config/CustomError.js";
 import globalErrorHandler from "./api/helpers/globalErrorHandler.js";
-import weatherRouter from "./api/routes/weatherRoute.js"
+import { getWeatherData } from "./api/controllers/weatherController.js";
 
 
 //creating express server
@@ -34,8 +34,12 @@ app.get("/", (req, res) => {
    res.send("Hello World!");
 });
 
+app.get("/sanyam", (req, res) => {
+   res.send("Helloasdsa World!");
+});
 
-app.use("/",weatherRouter);
+
+app.post("/getWeather",getWeatherData);
 
 
 //middleware for swagger

@@ -2,7 +2,7 @@ import * as WeatherService from "../services/weatherService.js";
 import asyncErrorHandler from "../helpers/asyncErrorHandler.js";
 
 export const getWeatherData = asyncErrorHandler(async (req, res) => {
-  const [locations] = req.body;
+  const { locations } = req.body;
   const allData = await Promise.all(
     locations.map((location) => WeatherService.getWeatherData(location))
   );
